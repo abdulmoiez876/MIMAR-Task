@@ -1,10 +1,14 @@
 import React, { useEffect } from 'react';
 import { Outlet, useNavigate } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+
+// redux
+import { getAllProducts } from './store/productsSlice';
 
 function App() {
 	// initializations
 	const navigate = useNavigate();
+	const dispatch = useDispatch();
 
 	// globals
 	const { isAuthenticated, seller } = useSelector(state => state.user);
@@ -12,9 +16,12 @@ function App() {
 	// effects
 	useEffect(() => {
 		if (isAuthenticated && seller) navigate('/seller/addProduct')
-		else if (isAuthenticated && !seller) navigate('/customer/home')
+		else if (isAuthenticated && !seller) {
+			dispatch(getAllProducts());
+			navigate('/customer/home')
+		}
 		else navigate('/auth/login')
-	}, [isAuthenticated, seller, navigate])
+	}, [isAuthenticated, seller, navigate, dispatch])
 
 	return (
 		<Outlet />

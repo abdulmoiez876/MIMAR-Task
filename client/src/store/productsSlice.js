@@ -24,6 +24,19 @@ export const productSlice = createSlice({
             state.productSliceLoading = false;
             alert(action.payload.message);
         })
+
+        // get all products
+        builder.addCase(getAllProducts.pending, (state, action) => {
+            state.productSliceLoading = true;
+        })
+        builder.addCase(getAllProducts.fulfilled, (state, action) => {
+            state.productSliceLoading = false;
+            state.products = action.payload.products;
+        })
+        builder.addCase(getAllProducts.rejected, (state, action) => {
+            state.productSliceLoading = false;
+            alert(action.payload.message);
+        })
     }
 })
 
@@ -34,6 +47,17 @@ export const createProduct = createAsyncThunk('products/createProduct', async (p
                 'Content-Type': 'multipart/form-data'
             }
         });
+
+        return response.data;
+    }
+    catch (error) {
+        return rejectWithValue(error.response.data);
+    }
+})
+
+export const getAllProducts = createAsyncThunk('products/getAllProducts', async (_, { rejectWithValue }) => {
+    try {
+        const response = await axios.get(`${baseUrl}/getAllProducts`);
 
         return response.data;
     }

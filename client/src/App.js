@@ -11,7 +11,7 @@ function App() {
 
 	// effects
 	useEffect(() => {
-		if (isAuthenticated && seller) navigate('/seller')
+		if (isAuthenticated && seller) navigate('/seller/addProduct')
 		else navigate('/auth/login')
 	}, [isAuthenticated, seller, navigate])
 

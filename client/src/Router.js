@@ -7,6 +7,7 @@ import Login from './pages/auth/login/Login';
 import Signup from './pages/auth/signup/Signup';
 
 import Seller from './pages/seller/Seller';
+import AddProduct from './pages/seller/addProduct/AddProduct';
 
 export const router = createBrowserRouter([
     {
@@ -30,6 +31,12 @@ export const router = createBrowserRouter([
             {
                 path: 'seller',
                 element: <Seller />,
+                children: [
+                    {
+                        path: 'addProduct',
+                        element: <AddProduct />,
+                    }
+                ]
             }
         ]
     }

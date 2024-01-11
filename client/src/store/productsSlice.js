@@ -6,11 +6,40 @@ const baseUrl = 'http://localhost:8000/product';
 const initialState = {
     productSliceLoading: false,
     products: [],
+    cart: []
 }
 
 export const productSlice = createSlice({
     name: 'products',
     initialState,
+    reducers: {
+        addToCart: (state, action) => {
+            const { _id } = action.payload;
+            const existingProduct = state.cart.find(product => product._id === _id);
+
+            if (existingProduct) {
+                existingProduct.count += 1;
+            } else {
+                const productToAdd = state.products.find(product => product._id === _id);
+                if (productToAdd) {
+                    state.cart.push({ ...productToAdd, count: 1 });
+                }
+            }
+        },
+        removeFromCart: (state, action) => {
+            const { _id } = action.payload;
+            const existingProduct = state.cart.find(product => product._id === _id);
+
+            if (existingProduct.count === 1) {
+                state.cart = state.cart.filter(product => product._id !== _id);
+            } else {
+                existingProduct.count -= 1;
+            }
+        },
+        clearCart: (state, action) => {
+            state.cart = [];
+        }
+    },
     extraReducers: (builder) => {
         // createProduct
         builder.addCase(createProduct.pending, (state, action) => {
@@ -65,3 +94,5 @@ export const getAllProducts = createAsyncThunk('products/getAllProducts', async 
         return rejectWithValue(error.response.data);
     }
 })
+
+export const { addToCart, removeFromCart, clearCart } = productSlice.actions;

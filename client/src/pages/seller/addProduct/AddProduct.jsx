@@ -61,7 +61,7 @@ export default function AddProduct() {
                 <h1 className='tw-text-base'>Description</h1>
                 <textarea onChange={changeHandler} name='description' value={productData.description} className='tw-w-full tw-bg-[#e5e8ed] tw-border-none tw-outline-none tw-rounded-sm tw-px-4 tw-py-2' type="text" placeholder='Description' />
             </div>
-            <button className='tw-bg-[#6a62d2] tw-border-none tw-outline-none tw-rounded-sm tw-px-4 tw-py-2 tw-w-full tw-col-span-3 tw-text-white' onClick={submitHandler}>Login</button>
+            <button className='tw-bg-[#6a62d2] tw-border-none tw-outline-none tw-rounded-sm tw-px-4 tw-py-2 tw-w-full tw-col-span-3 tw-text-white' onClick={submitHandler}>Add Product</button>
         </div>
     )
 }

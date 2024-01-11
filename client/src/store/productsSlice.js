@@ -6,7 +6,8 @@ const baseUrl = 'http://localhost:8000/product';
 const initialState = {
     productSliceLoading: false,
     products: [],
-    cart: []
+    cart: [],
+    selectedProductId: null
 }
 
 export const productSlice = createSlice({
@@ -38,6 +39,9 @@ export const productSlice = createSlice({
         },
         clearCart: (state, action) => {
             state.cart = [];
+        },
+        setSelectedProductId: (state, action) => {
+            state.selectedProductId = action.payload;
         }
     },
     extraReducers: (builder) => {
@@ -95,4 +99,4 @@ export const getAllProducts = createAsyncThunk('products/getAllProducts', async 
     }
 })
 
-export const { addToCart, removeFromCart, clearCart } = productSlice.actions;
+export const { addToCart, removeFromCart, clearCart, setSelectedProductId } = productSlice.actions;

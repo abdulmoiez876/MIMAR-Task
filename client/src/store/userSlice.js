@@ -79,3 +79,5 @@ export const signup = createAsyncThunk('user/signup', async (userData, { rejectW
         return rejectWithValue(error.response.data);
     }
 })
+
+export const {logout} = userSlice.actions;

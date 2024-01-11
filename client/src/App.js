@@ -5,6 +5,9 @@ import { useSelector, useDispatch } from 'react-redux';
 // redux
 import { getAllProducts } from './store/productsSlice';
 
+// components
+import Navbar from './components/navbar/Navbar';
+
 function App() {
 	// initializations
 	const navigate = useNavigate();
@@ -24,7 +27,10 @@ function App() {
 	}, [isAuthenticated, seller, navigate, dispatch])
 
 	return (
-		<Outlet />
+		<>
+			{isAuthenticated && <Navbar />}
+			<Outlet />
+		</>
 	);
 }
 

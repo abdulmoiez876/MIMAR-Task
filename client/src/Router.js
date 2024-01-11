@@ -11,6 +11,7 @@ import AddProduct from './pages/seller/addProduct/AddProduct';
 
 import Customer from './pages/customer/Customer';
 import Home from './pages/customer/home/Home';
+import Product from './pages/customer/product/Product';
 
 export const router = createBrowserRouter([
     {
@@ -48,6 +49,10 @@ export const router = createBrowserRouter([
                     {
                         path: 'home',
                         element: <Home />,
+                    },
+                    {
+                        path: 'product',
+                        element: <Product />,
                     }
                 ]
             }

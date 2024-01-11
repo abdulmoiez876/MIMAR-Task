@@ -49,6 +49,7 @@ export const userSlice = createSlice({
             state.seller = action.payload.user.seller;
             state.isAuthenticated = true;
             state.userSliceLoading = false;
+            alert(action.payload.message);
         })
         builder.addCase(signup.rejected, (state, action) => {
             state.userSliceLoading = false;
@@ -60,7 +61,7 @@ export const userSlice = createSlice({
 export const login = createAsyncThunk('user/login', async (userData, { rejectWithValue }) => {
     try {
         const response = await axios.post(`${baseUrl}/login`, userData);
-        
+
         return response.data;
     }
     catch (error) {
@@ -71,7 +72,7 @@ export const login = createAsyncThunk('user/login', async (userData, { rejectWit
 export const signup = createAsyncThunk('user/signup', async (userData, { rejectWithValue }) => {
     try {
         const response = await axios.post(`${baseUrl}/signup`, userData);
-        
+
         return response.data;
     }
     catch (error) {

@@ -3,9 +3,9 @@ import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 // redux
-import { login } from '../../../store/userSlice';
+import { signup } from '../../../store/userSlice';
 
-export default function Login() {
+export default function Signup() {
     // initializations
     const dispatch = useDispatch();
 
@@ -29,7 +29,8 @@ export default function Login() {
             alert('Please fill all the fields');
         }
         else {
-            dispatch(login(userData));
+            console.log(userData);
+            dispatch(signup(userData));
         }
     }
 
@@ -37,15 +38,15 @@ export default function Login() {
         <div className='tw-px-[9vw] tw-grid tw-place-items-center tw-h-screen tw-bg-[#6a62d2] '>
             <div className='tw-bg-white tw-px-[4vw] tw-py-[2vw] tw-rounded-lg'>
                 <div className='tw-flex tw-flex-col tw-items-start tw-gap-y-4'>
-                    <h1 className='tw-text-xl tw-text-center tw-w-full'>Login</h1>
+                    <h1 className='tw-text-xl tw-text-center tw-w-full'>Signup</h1>
                     <input onChange={changeHandler} name='username' value={userData.username} className='tw-bg-[#e5e8ed] tw-border-none tw-outline-none tw-rounded-sm tw-px-4 tw-py-2' type="text" placeholder='Username' />
                     <input onChange={changeHandler} name='password' value={userData.password} className='tw-bg-[#e5e8ed] tw-border-none tw-outline-none tw-rounded-sm tw-px-4 tw-py-2' type="password" placeholder='Password' />
                     <div className='tw-flex tw-items-center tw-gap-x-2'>
                         <h1>Seller</h1>
                         <input onChange={changeHandler} name='seller' checked={userData.seller} className='tw-rounded-sm' type="checkbox" />
                     </div>
-                    <button className='tw-bg-[#6a62d2] tw-border-none tw-outline-none tw-rounded-sm tw-px-4 tw-py-2 tw-w-full tw-text-white' onClick={submitHandler}>Login</button>
-                    <Link className='tw-text-blue-400' to='/auth/signup'>Don't have an account? Signup</Link>
+                    <button className='tw-bg-[#6a62d2] tw-border-none tw-outline-none tw-rounded-sm tw-px-4 tw-py-2 tw-w-full tw-text-white' onClick={submitHandler}>Signup</button>
+                    <Link className='tw-text-blue-400' to='/auth/login'>Already have an account? login</Link>
                 </div>
             </div>
         </div>

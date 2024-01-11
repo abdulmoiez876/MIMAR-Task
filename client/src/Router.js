@@ -9,6 +9,9 @@ import Signup from './pages/auth/signup/Signup';
 import Seller from './pages/seller/Seller';
 import AddProduct from './pages/seller/addProduct/AddProduct';
 
+import Customer from './pages/customer/Customer';
+import Home from './pages/customer/home/Home';
+
 export const router = createBrowserRouter([
     {
         path: '/',
@@ -35,6 +38,16 @@ export const router = createBrowserRouter([
                     {
                         path: 'addProduct',
                         element: <AddProduct />,
+                    }
+                ]
+            },
+            {
+                path: 'customer',
+                element: <Customer />,
+                children: [
+                    {
+                        path: 'home',
+                        element: <Home />,
                     }
                 ]
             }

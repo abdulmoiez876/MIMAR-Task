@@ -1,10 +1,9 @@
 import mongoose from 'mongoose';
 
-export default mongoose.model('User', mongoose.Schema({
+const userSchema = new mongoose.Schema({
     username: {
         type: String,
         required: true,
-        unique: true,
     },
     password: {
         type: String,
@@ -14,4 +13,8 @@ export default mongoose.model('User', mongoose.Schema({
         type: Boolean,
         required: true,
     }
-}))
+});
+
+userSchema.index({ username: 1, seller: 1 }, { unique: true });
+
+export default mongoose.model('User', userSchema);

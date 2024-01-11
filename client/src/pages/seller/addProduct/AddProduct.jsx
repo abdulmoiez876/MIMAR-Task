@@ -1,6 +1,13 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+
+// redux
+import { createProduct } from '../../../store/productsSlice';
 
 export default function AddProduct() {
+    // initializations
+    const dispatch = useDispatch();
+
     // locals
     const [productData, setProductData] = useState({
         title: "",
@@ -18,7 +25,21 @@ export default function AddProduct() {
     }
 
     const submitHandler = () => {
-        console.log(productData);
+        if (productData.title === '' || productData.price === '' || productData.description === '' || productData.image === null) {
+            alert('Please fill all the fields');
+        }
+        else {
+            dispatch(createProduct(productData)).then(response => {
+                if (!response.error) {
+                    setProductData({
+                        title: "",
+                        price: '',
+                        description: '',
+                        image: null
+                    })
+                }
+            });
+        }
     }
 
     return (

@@ -51,7 +51,7 @@ export default function AddProduct() {
             </div>
             <div className='tw-col-span-1 tw-flex tw-flex-col tw-items-start tw-gap-y-2 tw-w-full'>
                 <h1 className='tw-text-base'>Price</h1>
-                <input onChange={changeHandler} name='price' value={+productData.price} className='tw-w-full tw-bg-[#e5e8ed] tw-border-none tw-outline-none tw-rounded-sm tw-px-4 tw-py-2' type="number" placeholder='Price' />
+                <input onChange={changeHandler} name='price' value={productData.price} className='tw-w-full tw-bg-[#e5e8ed] tw-border-none tw-outline-none tw-rounded-sm tw-px-4 tw-py-2' type="number" placeholder='Price' />
             </div>
             <div className='tw-col-span-1 tw-flex tw-flex-col tw-items-start tw-gap-y-2 tw-w-full'>
                 <h1 className='tw-text-base'>Image</h1>

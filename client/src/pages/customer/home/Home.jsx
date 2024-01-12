@@ -20,7 +20,7 @@ export default function Home() {
                 <div className='tw-grid tw-grid-cols-3 tw-gap-4 tw-my-2 tw-col-span-3 tw-px-[4vw]'>
                     {products.map(product =>
                         <div key={product._id} className='tw-rounded-lg tw-bg-white tw-flex tw-flex-col tw-items-center tw-justify-between tw-gap-y-2 tw-pt-4 tw-col-span-1'>
-                            <div className='tw-px-[20%] tw-mx-[5%] tw-bg-[#f1f1f1]' onClick={() => {
+                            <div className='tw-px-[20%] tw-mx-[5%] tw-bg-[#f1f1f1] tw-cursor-pointer' onClick={() => {
                                 dispatch(setSelectedProductId(product._id));
                                 navigate('/customer/product');
                             }}>

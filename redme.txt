@@ -1,0 +1,18 @@
+1. For starting client follow these steps:
+=> cd client
+=> npm i
+=> npm start
+client will run on port 3000
+
+2. for starting server
+=> cd server
+=> npm i
+=> npm run dev
+server will start running on port 8000
+
+
+According to my understanding of the task, web app has following functionality:
+- User can signup and login as seller and regular customer, to login as seller simply check the checbox on those screens
+- When user logs in as seller, here he/she can add new product through the form provided
+- When user logs in as customer, here he/she can see list of all products, on clicking picture on the image user will be navigated to products page (its just a basic page), user can add the products to cart and all the state management is done through redux
+- You can also see demo video which I've attached

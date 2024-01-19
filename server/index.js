@@ -12,6 +12,9 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
+app.get('/', (req, res) => {
+    return res.status(200).send({ message: "Hello World: )" })
+})
 app.use('/user', userRouter);
 app.use('/product', productRouter);
 app.use('/uploads', express.static('uploads'));

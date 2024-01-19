@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 // const baseUrl = 'http://localhost:8000/product';
-const baseUrl = 'http://ec2-16-170-255-247.eu-north-1.compute.amazonaws.com/server:8000/product';
+const baseUrl = 'http://ec2-16-170-255-247.eu-north-1.compute.amazonaws.com:8000/product';
 
 const initialState = {
     productSliceLoading: false,
